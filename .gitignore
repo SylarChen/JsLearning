@@ -1,0 +1,16 @@
+*/target
+
+*/.idea
+target
+.vs
+*/.vs
+/DNet/LowPrice/.vs
+/DNet/LowPrice/Lowprice.Client/bin
+bin
+obj
+*.dll
+*.pdb
+/service-core/target/
+/.idea
+*/*.iml
+*.iml

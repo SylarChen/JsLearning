@@ -245,27 +245,42 @@ function coo() {
  */
 function xoo() {
     /**
-     * 只要未赋值的就都是undefine
+     * undefine:
+     * 1. 未申明
+     * 2. 只申明
+     * 3. 申明但赋值undefined  (使用时会报错)
      */
-    var a;
-    var c = null;
+    var a = null;
+    var b;
+    var c = undefined;
+
     console.log(typeof a)
     console.log(typeof b)
     console.log(typeof c)
+    console.log(typeof d)
 
-    function isNullRight(x) {
-        return typeof x !== undefined && x === null;
+    console.log("===============")
+
+    console.log(a === null)
+    console.log(b === null)
+    console.log(c === null)
+    try {
+        console.log(d === null)  // 会报错！！！！！！
+    }catch (e) {
+        console.log(e)
     }
 
-    function isNullWrong(x) {
-        // undefine 时会报错
-        return x === null;
+
+    /**
+     * 所以正确的检查一个对象不为null的方式是：
+     * 注意：typeof 返回值为 字！符！串！
+     */
+    if (typeof e !== "undefined" && e !== null) {
+
+    }else {
+        console.log("e is undefine or null")
     }
 
-    console.log(isNullRight(a))
-    console.log(isNullRight(c))
-    console.log(isNullWrong(a))
-    console.log(isNullWrong(c))
 }
 
 xoo(12.5, "ASd", "Ad");
