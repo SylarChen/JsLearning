@@ -239,9 +239,9 @@ function coo() {
 }
 
 /**
- * 在 JavaScript 中, null 用于对象, undefined 用于变量，属性和方法。
- * 对象只有被定义才有可能为 null，否则为 undefined。
- * 如果我们想测试对象是否存在，在对象还没定义时将会抛出一个错误。
+ * ！！！对于尚未声明过的变量，我们只能执行一项操作，即使用typeof操作符检测其数据类型，使用其他的操作都会报错！！！
+ * ！！！【typeof 返回值为 字！符！串！】！！！
+ *
  */
 function xoo() {
     /**
@@ -249,6 +249,9 @@ function xoo() {
      * 1. 未申明
      * 2. 只申明
      * 3. 申明但赋值undefined  (使用时会报错)
+     *
+     * 4. 一个函数如果没有使用return语句指定返回值，就会返回一个undefined值
+     * 5. 调用函数时没有传参数值，参数同样也会被初始化为undefined值
      */
     var a = null;
     var b;
@@ -266,18 +269,17 @@ function xoo() {
     console.log(c === null)
     try {
         console.log(d === null)  // 会报错！！！！！！
-    }catch (e) {
+    } catch (e) {
         console.log(e)
     }
 
 
     /**
-     * 所以正确的检查一个对象不为null的方式是：
-     * 注意：typeof 返回值为 字！符！串！
+     * 检查一个对象不为null的正确方式是：
      */
     if (typeof e !== "undefined" && e !== null) {
 
-    }else {
+    } else {
         console.log("e is undefine or null")
     }
 
